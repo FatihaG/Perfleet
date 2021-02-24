@@ -3,6 +3,8 @@ package com.Perfleet.step_definitions;
 import com.Perfleet.pages.VehicleDetailPage;
 import com.Perfleet.utilities.BrowserUtils;
 import com.Perfleet.utilities.Driver;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -81,4 +83,42 @@ public class VehicleAddEventStepDefs {
     }
 
 
+    @Given("open the url page")
+    public void openTheUrlPage() {
+        
+    }
+
+    @When("user write to user name and password")
+    public void userWriteToUserNameAndPassword() {
+        
+    }
+
+    @And("user should be able to login successfully")
+    public void userShouldBeAbleToLoginSuccessfully() {
+        
+    }
+
+    @Then("{string} select any car on grid button")
+    public void selectAnyCarOnGridButton(String arg0) {
+        
+    }
+
+    @And("{string} should be able to add event")
+    public void shouldBeAbleToAddEvent(String arg0) {
+        
+    }
+
+    @When("{string} updated general information page")
+    public void updatedGeneralInformationPage(String arg0) {
+        
+    }
+
+    @Then("{string} should see update in both general information page")
+    public void shouldSeeUpdateInBothGeneralInformationPage(String arg0) {
+        
+    }
+
+    @And("{string} should see update activity tab related add event")
+    public void shouldSeeUpdateActivityTabRelatedAddEvent(String arg0) {
+    }
 }

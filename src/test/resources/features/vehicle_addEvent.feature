@@ -1,18 +1,15 @@
-Feature: Vehicle Add Event
+Feature:Vehicle Add Event
 
-  @vae
   Scenario Outline:
-    Given the user is on the login page
-    When the user logs in using "<username>" and "<password>"
-    And the user navigates to "Fleet" "Vehicles"
-    And the user selects the vehicle with licence plate "<plateNumber>"
-    And the user clicks on Add Event button
-    Then the user verifies add event page
-    When  the user fills title as "<title>" and description as "<description>"
-    And the user clicks on save button
-    Then the user should see "Calendar event saved" message
-
+    Given open the url page
+    When user write to user name and password
+    And user should be able to login successfully
+    Then "<usertype>" select any car on grid button
+    And "<usertype>" should be able to add event
+    When "<usertype>" updated general information page
+    Then "<usertype>" should see update in both general information page
+    And "<usertype>" should see update activity tab related add event
     Examples:
-      | username        | password    | title  | description  | plateNumber |
-      | storemanager61  | UserUser123 | title1 | description1 | VA12345     |
-      | salesmanager101 | UserUser123 | title2 | description2 | VA12345     |
+      | usertype     |
+      | storemanager |
+      | salesanager  |
