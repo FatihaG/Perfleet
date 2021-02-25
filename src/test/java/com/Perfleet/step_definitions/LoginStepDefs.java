@@ -68,6 +68,10 @@ public class LoginStepDefs {
 
     }
 
+
+
+
+
     @Given("the user logged in as {string}")
     public void the_user_logged_in_as(String userType) {
         //go to login page
@@ -89,10 +93,6 @@ public class LoginStepDefs {
         //send username and password and login
         new LoginPage().login(username,password);
     }
-
-
-
-
 
 
 

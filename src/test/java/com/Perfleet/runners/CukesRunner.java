@@ -14,8 +14,9 @@ import org.junit.runner.RunWith;
                 "pretty"},
         features = "src/test/resources/features",
         glue = "com/Perfleet/step_definitions",
+        strict = true,
         dryRun = false,
-        tags = ""
+        tags = "@sc1"
         //optional
 )
 public class CukesRunner {
