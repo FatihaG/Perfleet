@@ -22,8 +22,8 @@ public class VehicleSaveStepDefs {
 
     }
 
-    @Then("the user clicks on {string} button")
-    public void the_user_clicks_on_button(String locatorIdentifier) {
+    @Then("the user clicks on {string} element")
+    public void the_user_clicks_on_element(String locatorIdentifier) {
         new DashboardPage().waitUntilLoaderScreenDisappear();
         String locator = "//a[@title='"+locatorIdentifier+"']";
         WebElement button = Driver.get().findElement(By.xpath(locator));
