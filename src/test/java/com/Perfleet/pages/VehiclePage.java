@@ -1,5 +1,10 @@
 package com.Perfleet.pages;
 
+import com.Perfleet.utilities.BrowserUtils;
+import com.Perfleet.utilities.Driver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -10,6 +15,59 @@ public class VehiclePage extends BasePage {
 
     @FindBy(xpath = "(//button[@type='button'])[1]")
     public WebElement manageFilter;
+
+    @FindBy(xpath = "//a[@title='Create Car']")
+    public WebElement createCarBtn;
+
+
+    @FindBy(xpath = "//a[@title='Edit Car']")
+    public WebElement editCarBtn;
+
+
+    /**
+     *
+     * @param buttonIdentifier: for first option specify title attribute
+     *                        for second option specify text of web element
+     */
+    public void clickOnButton(String buttonIdentifier){
+
+        try {
+            BrowserUtils.waitFor(5);
+            String xpathLocatorFirstoption = "//a[@title='"+buttonIdentifier+"']";
+            Driver.get().findElement(By.xpath(xpathLocatorFirstoption)).click();
+        }catch (NoSuchElementException n){
+            String xpathLocatorSecondoption = "//button[contains(text(),'"+buttonIdentifier+"')]";
+            Driver.get().findElement(By.xpath(xpathLocatorSecondoption)).click();
+        }
+
+        BrowserUtils.waitFor(3);
+
+
+    }
+
+
+
+    public void sentKeysToInputBox(String inputBoxName , String value) {
+
+
+
+        String locatorOfInputBox = "//label[contains(.,'"+inputBoxName+"')]/../..//input";
+
+        WebElement inputBox = Driver.get().findElement(By.xpath(locatorOfInputBox));
+        inputBox.click();
+        inputBox.sendKeys(Keys.CLEAR);
+        inputBox.sendKeys(value);
+
+        BrowserUtils.waitFor(1);
+
+    }
+
+
+
+
+
+
+
 
 
 
