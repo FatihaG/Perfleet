@@ -16,8 +16,7 @@ import org.junit.runner.RunWith;
         glue = "com/Perfleet/step_definitions",
         strict = true,
         dryRun = false,
-        tags = "@sc1"
-        //optional
+        tags = "@eo"
 )
 public class CukesRunner {
 
