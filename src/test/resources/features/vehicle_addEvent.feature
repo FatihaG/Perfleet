@@ -12,20 +12,20 @@ Feature:Vehicle Add Event
 
 
     Examples:
-      | usertype     |
+      | usertype      |
       | store manager |
-      | sales manager  |
+      | sales manager |
 
-    @wip
-    Scenario Outline: test
-      Given the user logged in as "<usertype>"
-      When the user navigates to "Activities" "Calendar Events"
-      And the user clicks on "Create Calendar event"
+  @wip
+  Scenario Outline: test
+    Given the user logged in as "<usertype>"
+    When the user navigates to "Activities" "Calendar Events"
+    And the user clicks on "Create Calendar event"
 
-      And the user should check the "All-day event" checkbox
-      And the user should check the "Repeat" checkbox
-      And the user should check the "Call via Hangout" checkbox
+    And the user should check the "All-day event" checkbox
+    And the user should check the "Repeat" checkbox
+    And the user should check the "Call via Hangout" checkbox
 
-      Examples:
-        | usertype     |
-        | store manager |
+    Examples:
+      | usertype      |
+      | store manager |
