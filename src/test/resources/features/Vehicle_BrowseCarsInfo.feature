@@ -10,9 +10,9 @@ Feature: Browse Cars Information as user
 #    Then the user should see total number of records in table
     And the user clicks on record 1 in table
 #    Then the user should see the "General Information" subtitle
-    And the user clicks "Activity" tab
+    And the user clicks on "Activity" element
 #    Then the user should see the "Activity Type" button
-    And the user clicks "Activity Type" button
+    And the user clicks on "Activity Type" element
 #    Then the checkbox "All" should be checked
     And the user should see the Input-Box empty
     And the user enters "Calendar event" in the Input-Box
