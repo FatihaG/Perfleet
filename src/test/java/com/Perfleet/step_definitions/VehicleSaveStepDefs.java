@@ -20,6 +20,7 @@ public class VehicleSaveStepDefs {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }
+
     @Then("the user fills {string} , {string}")
     public void the_user_fills(String string, String string2) {
         // Write code here that turns the phrase above into concrete actions
@@ -30,10 +31,21 @@ public class VehicleSaveStepDefs {
     @Then("the user clicks on {string} element")
     public void the_user_clicks_on_element(String locatorIdentifier) {
         new DashboardPage().waitUntilLoaderScreenDisappear();
-        String locator = "//a[@title='"+locatorIdentifier+"']";
-        WebElement button = Driver.get().findElement(By.xpath(locator));
-        button.click();
+        WebElement button = null;
 
+        try {
+            String locator = "//a[@title='" + locatorIdentifier + "']";
+            button = Driver.get().findElement(By.xpath(locator));
+        } catch (NullPointerException e) {
+            String locator = "//a[.='" + locatorIdentifier + "']";
+            button = Driver.get().findElement(By.xpath(locator));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (button != null) {
+            button.click();
+        }
 
 
     }
