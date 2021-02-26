@@ -3,6 +3,7 @@ package com.Perfleet.pages;
 import com.Perfleet.utilities.BrowserUtils;
 import com.Perfleet.utilities.Driver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
@@ -13,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public abstract class  BasePage {
+public abstract class BasePage {
 
     @FindBy(css = "span.title-level-1")
     public List<WebElement> menuOptions;
@@ -65,20 +66,20 @@ public abstract class  BasePage {
 
     }
 
-    public String getUserName(){
+    public String getUserName() {
         waitUntilLoaderScreenDisappear();
         BrowserUtils.waitForVisibility(userName, 5);
         return userName.getText();
     }
 
 
-
-    public void logOut(){
+    public void logOut() {
         BrowserUtils.waitFor(2);
         BrowserUtils.clickWithJS(userName);
         BrowserUtils.clickWithJS(logOutLink);
     }
-    public void goToMyUser(){
+
+    public void goToMyUser() {
         waitUntilLoaderScreenDisappear();
         BrowserUtils.waitForClickablility(userName, 5).click();
         BrowserUtils.waitForClickablility(myUser, 5).click();
@@ -90,8 +91,8 @@ public abstract class  BasePage {
      * For example: if tab is equals to Activities, and module equals to Calls,
      * Then method will navigate user to this page: http://qa2.vytrack.com/call/
      *
-     * @param tab
-     * @param module
+     * @param tab:
+     * @param module:
      */
     public void navigateToModule(String tab, String module) {
         String tabLocator = "//span[normalize-space()='" + tab + "' and contains(@class, 'title title-level-1')]";
@@ -110,9 +111,37 @@ public abstract class  BasePage {
             Driver.get().findElement(By.xpath(moduleLocator)).click();
         } catch (Exception e) {
 //            BrowserUtils.waitForStaleElement(Driver.get().findElement(By.xpath(moduleLocator)));
-            BrowserUtils.clickWithTimeOut(Driver.get().findElement(By.xpath(moduleLocator)),  5);
+            BrowserUtils.clickWithTimeOut(Driver.get().findElement(By.xpath(moduleLocator)), 5);
         }
     }
 
+    /**
+     * @param buttonIdentifier: for first option specify title attribute
+     *                          for second option specify text of web element
+     */
+    public void clickOnButton(String buttonIdentifier) {
+
+        try {
+            BrowserUtils.waitFor(5);
+            String xpathLocatorFirstoption = "//a[@title='" + buttonIdentifier + "']";
+            Driver.get().findElement(By.xpath(xpathLocatorFirstoption)).click();
+        } catch (NoSuchElementException n) {
+            String xpathLocatorSecondoption = "//button[contains(text(),'" + buttonIdentifier + "')]";
+            Driver.get().findElement(By.xpath(xpathLocatorSecondoption)).click();
+        }
+
+        BrowserUtils.waitFor(3);
+
+
+    }
+
+
+    public void checkTheCheckBox(String labelName) {
+        new DashboardPage().waitUntilLoaderScreenDisappear();
+
+        String checkboxLocator = "(//label[contains(.,'" + labelName + "')])[1]";
+        Driver.get().findElement(By.xpath(checkboxLocator)).click();
+        BrowserUtils.waitFor(2);
+    }
 
 }

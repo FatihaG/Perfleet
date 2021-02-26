@@ -24,26 +24,7 @@ public class VehiclePage extends BasePage {
     public WebElement editCarBtn;
 
 
-    /**
-     *
-     * @param buttonIdentifier: for first option specify title attribute
-     *                        for second option specify text of web element
-     */
-    public void clickOnButton(String buttonIdentifier){
 
-        try {
-            BrowserUtils.waitFor(5);
-            String xpathLocatorFirstoption = "//a[@title='"+buttonIdentifier+"']";
-            Driver.get().findElement(By.xpath(xpathLocatorFirstoption)).click();
-        }catch (NoSuchElementException n){
-            String xpathLocatorSecondoption = "//button[contains(text(),'"+buttonIdentifier+"')]";
-            Driver.get().findElement(By.xpath(xpathLocatorSecondoption)).click();
-        }
-
-        BrowserUtils.waitFor(3);
-
-
-    }
 
 
 

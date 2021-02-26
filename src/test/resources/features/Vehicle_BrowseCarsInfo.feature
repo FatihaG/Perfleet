@@ -14,7 +14,7 @@ Feature: Browse Cars Information as user
 #    Then the user should see the "Activity Type" button
     And the user clicks on "Activity Type" element
 #    Then the checkbox "All" should be checked
-    And the user should see the Input-Box empty
+    And the user should see the "Input-Box" empty
     And the user enters "Calendar event" in the Input-Box
 #    Then the table record should have "Calendar event added" as beginning of title
     And the user clicks "Date Range" button

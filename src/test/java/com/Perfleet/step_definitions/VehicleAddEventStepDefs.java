@@ -1,5 +1,7 @@
 package com.Perfleet.step_definitions;
 
+import com.Perfleet.pages.CreateCalendarEventsPage;
+import com.Perfleet.pages.DashboardPage;
 import com.Perfleet.pages.VehicleDetailPage;
 import com.Perfleet.utilities.BrowserUtils;
 import com.Perfleet.utilities.Driver;
@@ -23,7 +25,7 @@ public class VehicleAddEventStepDefs {
             Driver.get().findElement(By.xpath("//button[@title='close']")).click();
             Thread.sleep(4000);
         } catch (Exception e) {
-          // throw new Exception("sacmalama");
+            // throw new Exception("sacmalama");
         }
         Driver.get().findElement(By.xpath(locator)).click();
 
@@ -85,40 +87,46 @@ public class VehicleAddEventStepDefs {
 
     @Given("open the url page")
     public void openTheUrlPage() {
-        
+
     }
 
     @When("user write to user name and password")
     public void userWriteToUserNameAndPassword() {
-        
+
     }
 
     @And("user should be able to login successfully")
     public void userShouldBeAbleToLoginSuccessfully() {
-        
+
     }
 
     @Then("{string} select any car on grid button")
     public void selectAnyCarOnGridButton(String arg0) {
-        
+
     }
 
     @And("{string} should be able to add event")
     public void shouldBeAbleToAddEvent(String arg0) {
-        
+
     }
 
     @When("{string} updated general information page")
     public void updatedGeneralInformationPage(String arg0) {
-        
+
     }
 
     @Then("{string} should see update in both general information page")
     public void shouldSeeUpdateInBothGeneralInformationPage(String arg0) {
-        
+
     }
 
     @And("{string} should see update activity tab related add event")
     public void shouldSeeUpdateActivityTabRelatedAddEvent(String arg0) {
+    }
+
+    @And("the user should check the {string} checkbox")
+    public void theUserShouldCheckTheCheckbox(String checkboxLabelName) {
+
+        new CreateCalendarEventsPage().checkTheCheckBox(checkboxLabelName);
     }
 }
