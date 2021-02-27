@@ -9,7 +9,7 @@ public class OdometerStepDefs {
 
     @When("the user selects {int} st option")
     //static 
-    //final
+    //finaliy changed
     //public not main
     public void the_user_selects_st_option(int index) {
         BrowserUtils.waitFor(3);
