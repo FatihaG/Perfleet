@@ -137,11 +137,10 @@ public abstract class BasePage {
 
 
     public void checkTheCheckBox(String labelName) {
-        new DashboardPage().waitUntilLoaderScreenDisappear();
 
         String checkboxLocator = "(//label[contains(.,'" + labelName + "')])[1]";
         Driver.get().findElement(By.xpath(checkboxLocator)).click();
-        BrowserUtils.waitFor(2);
+
     }
 
 }

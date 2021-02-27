@@ -23,8 +23,8 @@ Feature:Vehicle Add Event
     And the user clicks on "Create Calendar event"
 
     And the user should check the "All-day event" checkbox
-    And the user should check the "Repeat" checkbox
     And the user should check the "Call via Hangout" checkbox
+    And the user should check the "Repeat" checkbox
 
     Examples:
       | usertype      |

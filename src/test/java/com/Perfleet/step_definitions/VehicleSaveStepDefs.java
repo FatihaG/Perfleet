@@ -53,7 +53,7 @@ public class VehicleSaveStepDefs {
 
     @When("the user clicks on {string}")
     public void the_user_clicks_on(String buttonIdentifier) {
-
+        BrowserUtils.waitForPageToLoad(5);
         new VehiclePage().clickOnButton(buttonIdentifier);
 
     }
