@@ -14,6 +14,8 @@ public class OdometerStepDefs {
     public void the_user_selects_st_option(int index) {
         BrowserUtils.waitFor(3);
         new OdometerPage().clickOnOptionWithIndex(index);
+        //here changed
+
 
 
     }
