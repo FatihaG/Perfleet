@@ -7,8 +7,7 @@ import io.cucumber.java.en.When;
 public class OdometerStepDefs {
 
 //public 
-    //void
-    //void
+//public
     
     
     @When("the user selects {int} st option")
