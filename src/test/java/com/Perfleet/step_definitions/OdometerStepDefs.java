@@ -6,10 +6,14 @@ import io.cucumber.java.en.When;
 
 public class OdometerStepDefs {
 
-
+//public 
+    
+    
+    
     @When("the user selects {int} st option")
     public void the_user_selects_st_option(int index) {
-        BrowserUtils.waitFor(3);
+        //public
+        //public BrowserUtils.waitFor(3);
         new OdometerPage().clickOnOptionWithIndex(index);
 
 
