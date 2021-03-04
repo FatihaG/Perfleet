@@ -54,7 +54,7 @@ public class VehicleSaveStepDefs {
     @When("the user clicks on {string}")
     public void the_user_clicks_on(String buttonIdentifier) {
 
-        new VehiclePage().clickOnButton(buttonIdentifier);
+        //new VehiclePage().clickOnButton(buttonIdentifier);
 
     }
 
