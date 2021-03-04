@@ -127,6 +127,6 @@ public class VehicleAddEventStepDefs {
     @And("the user should check the {string} checkbox")
     public void theUserShouldCheckTheCheckbox(String checkboxLabelName) {
 
-        new CreateCalendarEventsPage().checkTheCheckBox(checkboxLabelName);
+        //new CreateCalendarEventsPage().checkTheCheckBox(checkboxLabelName);
     }
 }
