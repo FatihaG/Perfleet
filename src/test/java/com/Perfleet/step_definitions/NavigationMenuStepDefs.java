@@ -3,6 +3,7 @@ package com.Perfleet.step_definitions;
 
 
 import com.Perfleet.pages.DashboardPage;
+import com.Perfleet.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -44,6 +45,8 @@ public class NavigationMenuStepDefs {
     @When("the user navigates to {string} {string}")
     public void the_user_navigates_to(String tab, String module) {
         new DashboardPage().navigateToModule(tab,module);
+
+
     }
 
 

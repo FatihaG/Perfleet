@@ -2,6 +2,7 @@ package com.Perfleet.pages;
 
 import com.Perfleet.utilities.BrowserUtils;
 import com.Perfleet.utilities.Driver;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -12,6 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public abstract class  BasePage {
 
@@ -113,6 +115,110 @@ public abstract class  BasePage {
             BrowserUtils.clickWithTimeOut(Driver.get().findElement(By.xpath(moduleLocator)),  5);
         }
     }
+
+
+    /**
+     *
+     * @param label: it should be label web elements text value in HTML
+     * @param value : the string value that you want to sent
+     *
+     * Note: put some wait before first usage
+     */
+    public void sentKeysToInputBox(String label, String value){
+
+
+        String locator = "//label[contains(text(),'"+label+"')]/../..//input";
+
+        Driver.get().findElement(By.xpath(locator)).sendKeys(value);
+
+        BrowserUtils.waitFor(1);
+
+    }
+
+
+    public WebElement getInputBoxByName(String label){
+        String locator = "//label[contains(text(),'"+label+"')]/../..//input";
+
+        return Driver.get().findElement(By.xpath(locator));
+    }
+
+
+
+    /**
+     *
+     * @param buttonIdentifier: it should be title attribute of button if it starts with <a> tag
+     *                          it should be text attribute of button if it starts with <button> tag
+     */
+
+
+
+    public void clickButton(String buttonIdentifier){
+        try {
+
+
+
+            String location = "//*[@title='" + buttonIdentifier + "']";
+
+//            WebDriverWait webDriverWait = new WebDriverWait(Driver.get(), 10);
+//
+//            webDriverWait.until(ExpectedConditions.)
+
+           // waitUntilLoaderScreenDisappear();
+
+            BrowserUtils.waitFor(3);
+            //Thread.sleep(2000);
+
+            WebElement button = Driver.get().findElement(By.xpath(location));
+            button.click();
+
+            //a[@title='"+buttonIdentifier+"']
+
+
+        } catch (Exception e) {
+
+            String location = "//button[contains(.,'" + buttonIdentifier + "')]";
+
+            WebElement button = Driver.get().findElement(By.xpath(location));
+            button.click();
+
+        }
+    }
+
+    public String findValidationMessageForInputBox(String label){
+
+        String locator = "(//label[contains(.,'"+label+"')]/../..//span)[3]";
+        String message = Driver.get().findElement(By.xpath(locator)).getText();
+        return message;
+
+    }
+
+
+    public boolean findIfValidationMessageExist(String label){
+
+        try{
+            String locator = "(//label[contains(.,'"+label+"')]/../..//span)[3]";
+            boolean isDisplayed = Driver.get().findElement(By.xpath(locator)).isDisplayed();
+            return isDisplayed;
+        }catch (Exception e){
+           // e.printStackTrace();
+            return false;
+        }
+
+
+    }
+
+
+   public WebElement getInputBoxByLabelName(String label){
+
+       String locator = "//label[contains(.,'"+label+"')]/../..//input";
+
+       WebElement element = Driver.get().findElement(By.xpath(locator));
+
+       return element;
+
+
+   }
+
 
 
 }
